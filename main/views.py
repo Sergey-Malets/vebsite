@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Task
+from .models import Task_2
 
 def index(request):
-    tasks = Task.objects.all()
+    tasks = Task_2.objects.order_by("-id")
     return render(request,"main/index.html", {'title':"Главная страница", 'tasks':tasks})
 
 def about(request):
@@ -14,3 +14,6 @@ def new_url(request):
 
 def new_page(request):
     return render(request, "main/new_page.html")
+
+def create(request):
+    return render(request, "main/create.html")
