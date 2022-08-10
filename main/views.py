@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task_2
+from .forms import Task_2_Form
+from .forms import CommentForm
+from .models import Comment
 
 def index(request):
     tasks = Task_2.objects.order_by("-id")
@@ -13,7 +16,16 @@ def new_url(request):
     return HttpResponse("<h1>New URL</h1>")
 
 def new_page(request):
-    return render(request, "main/new_page.html")
+    comments = Comment.objects.all()
+    form = CommentForm()
+    context = {
+        'form': form
+    }
+    return render(request, "main/new_page.html", {'title':"Новая страница", "comments":comments})
 
 def create(request):
+    form = Task_2_Form()
+    context = {
+        'form':form
+    }
     return render(request, "main/create.html")

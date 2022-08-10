@@ -11,8 +11,21 @@
       <h1 class="display-4 fw-normal">Новая страница с альтернативными формами</h1>
       <p class="fs-5 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla felis libero, volutpat non porta id, bibendum eu velit. Duis elementum quam non arcu molestie bibendum. In hac habitasse platea dictumst. Integer nisi velit, mattis eu condimentum vel, aliquet ut magna. Fusce est augue, cursus a felis eget, semper tempor erat. Nam nec elit a erat varius eleifend. Sed tincidunt dolor vitae feugiat convallis. Integer dictum eros dolor, lobortis laoreet leo viverra ut. Integer sed enim non enim fringilla efficitur ac eu lorem. Proin bibendum augue vel sodales commodo. Mauris dapibus scelerisque mi, in finibus elit tempor a. In posuere lorem dolor, in tincidunt nisi lacinia a.</p>
     </div>
+    {% if comments %}
+    {% for i in comments %}
+    <div class="alert alert-primary mt-2">
+        <h3>{{i.name}}</h3>
+        <p>{{i.message}}</p>
+
+    </div>
+    {% endfor %}
+    {% else%}
+        <p>No comments at this moment</p>
+    {% endif %}
+
     <h4>Comments</h4>
     <form method="post">
+        {% csrf_token %}
       <input type="text" placeholder="Enter name" class="form-control"><br>
       <textarea type="text" placeholder="Enter message" class="form-control"></textarea><br>
       <button type="submit" class="btn btn-primary">Send</button>

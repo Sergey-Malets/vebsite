@@ -25,3 +25,7 @@ class Task_2(models.Model):
     class Meta:
         verbose_name="Задача"
         verbose_name_plural="Задачи"
+
+class Comment(models.Model):
+    name = models.CharField("name", max_length=60)
+    message = models.TextField("message")
