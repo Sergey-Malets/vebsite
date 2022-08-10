@@ -1,5 +1,5 @@
 from .models import Task_2
-from django.forms import ModelForm, widgets, TextInput
+from django.forms import ModelForm, TextInput, Textarea, NumberInput
 from .models import Comment
 
 
@@ -9,9 +9,10 @@ class Task_2_Form(ModelForm):
         fields = ["title", "task", "float_field"]
         widgets = {
             'title': TextInput(attrs={'class':'form-control', "placeholder":"Введите название"}),
-            'task': TextInput(attrs={'class':'form-control', "placeholder":"Введите описание"}),
-            'float_field': TextInput(attrs={'class':'form-control','placeholder':"Введите рейтинг(0-10, где 10 наивысший)"})
+            'task': Textarea(attrs={'class':'form-control', "placeholder":"Введите описание"}),
+            'float_field': NumberInput(attrs={'class':'form-control','placeholder':"Введите рейтинг(0-10, где 10 наивысший)"})
         }
+
 
 class CommentForm(ModelForm):
     class Meta:
@@ -19,6 +20,6 @@ class CommentForm(ModelForm):
         fields = ["name", "message"]
         widgets = {
             'name': TextInput(attrs={'class': 'form-control', "placeholder": "Enter name"}),
-            'message': TextInput(attrs={'class': 'form-control', "placeholder": "Enter message"}),
+            'message': Textarea(attrs={'class': 'form-control', "placeholder": "Enter message"}),
 
         }

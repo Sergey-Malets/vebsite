@@ -8,12 +8,9 @@
 <h1>Создать новую задачу </h1>
     <form method="post">
         {% csrf_token %}
-        {{ form.title }}
-        {{ form.task }}
-        {{ form.float_field }}
-        <input type="text" placeholder="Введите название" class="form-control"><br>
-        <textarea type="text" placeholder="Введите описание" class="form-control"></textarea><br>
-        <input type="number" placeholder="Введите рейтинг(0-10, где 10 наивысший)" class="form-control"><br>
+        {{ form.title }}<br>
+        {{ form.task }}<br>
+        {{ form.float_field }}<br>
         <button type="sumbit" class="btn btn-success">Добавить</button>
 
     </form>

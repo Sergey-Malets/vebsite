@@ -26,10 +26,9 @@
     <h4>Comments</h4>
     <form method="post">
         {% csrf_token %}
-        {{ form.name }}
-        {{ form.message }}
-      <input type="text" placeholder="Enter name" class="form-control"><br>
-      <textarea type="text" placeholder="Enter message" class="form-control"></textarea><br>
+        {{ form.name }}<br>
+        {{ form.message }}<br>
+
       <button type="submit" class="btn btn-primary">Send</button>
     </form>
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
